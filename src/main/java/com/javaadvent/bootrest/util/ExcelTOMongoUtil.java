@@ -18,19 +18,19 @@ public class ExcelTOMongoUtil{
 		try {
 		System.out.println("Viola!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
-		DB db = mongoClient.getDB("yourdb_name");
+		DB db = mongoClient.getDB("test");
 		System.out.println("Connected to Database successfully");
-		DBCollection coll = db.getCollection("your_collection name");
+		DBCollection coll = db.getCollection("attendee");
 		System.out.println("Collection your_collection name selected successfully");
 
-		DBCollection OR = db.getCollection("Input_Container");
+		DBCollection OR = db.getCollection("attendee");
 		System.out.println("Collection Device_Details selected successfully");
 		OR.drop();
 		DBObject arg1 = null;
 		//coll.update(query, update);
 		DBCollection OR_UPLOAD = 
-				db.createCollection("Input_Container", arg1);
-		String path ="/home/pratik/Downloads/unconf.txt";
+				db.createCollection("attendee", arg1);
+		String path ="D:\\UnConference\\UnconferenceRegData.xlsx";
 
 		File myFile = new File(path);
 		FileInputStream inputStream = new FileInputStream(myFile);
@@ -38,9 +38,9 @@ public class ExcelTOMongoUtil{
 		int number=workbook.getNumberOfSheets();
 		System.out.println("NumberOfSheets "+number);
 
-		for(int i=0;i<number;i++)
-		{
-			XSSFSheet sheet = workbook.getSheetAt(i);
+		//for(int i=0;i<number;i++)
+		//{
+			XSSFSheet sheet = workbook.getSheetAt(1);
 			int col_value=sheet.getRow(0).getLastCellNum();
 			int row_num= sheet.getLastRowNum();
 			System.out.println("row_num "+row_num);
@@ -84,7 +84,7 @@ public class ExcelTOMongoUtil{
 				OR_UPLOAD.insert(doc);
 			}
 
-		}
+		//}
 		System.out.println("File Upload Done");
 		mongoClient.close();}
 		catch(Exception e) {
