@@ -36,7 +36,7 @@ interface AttendeeService {
      * @return      The information of the requested todo entry.
      * @throws com.javaadvent.bootrest.todo.TodoNotFoundException if no todo entry is found.
      */
-    AttendeeDTO findById(String id);
+    AttendeeDTO findById(String email);
 
     /**
      * Updates the information of a todo entry.
@@ -45,4 +45,6 @@ interface AttendeeService {
      * @throws com.javaadvent.bootrest.todo.TodoNotFoundException if no todo entry is found.
      */
     AttendeeDTO update(AttendeeDTO todo);
+    
+    Attendee findByEmail(String email);
 }
