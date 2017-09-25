@@ -3,12 +3,12 @@ package com.javaadvent.bootrest.todo;
 import org.hibernate.validator.constraints.NotEmpty;
 public final class AttendeeDTO {
 
-	public String getId() {
-		return id;
+	public String getRfid() {
+		return rfid;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setRfid(String rfid) {
+		this.rfid = rfid;
 	}
 
 	public String getName() {
@@ -35,16 +35,16 @@ public final class AttendeeDTO {
 		this.orgName = orgName;
 	}
 
-	@NotEmpty
-    private String id;
+	//@NotEmpty
+    private String rfid;
 
-    @NotEmpty
+    //@NotEmpty
     private String name;
     
-    @NotEmpty
+    //@NotEmpty
     private String email;
 
-    @NotEmpty
+    //@NotEmpty
     private String orgName;
 
     //Constructor, getters, and setters are omitted
