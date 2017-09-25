@@ -30,7 +30,7 @@ interface AttendeeRepository extends Repository<Attendee, String> {
      * @return      The information of the found Attendee entry. If no Attendee entry
      *              is found, this method returns an empty {@link java.util.Optional} object.
      */
-    Optional<Attendee> findOne(String id);
+    Optional<Attendee> findOne(String email);
 
     /**
      * Saves a new Attendee entry to the database.
@@ -38,4 +38,6 @@ interface AttendeeRepository extends Repository<Attendee, String> {
      * @return      The information of the saved Attendee entry.
      */
     Attendee save(Attendee saved);
+    
+    Attendee findByEmail(String email);
 }
