@@ -30,7 +30,7 @@ public class ExcelTOMongoUtil{
 		//coll.update(query, update);
 		DBCollection OR_UPLOAD = 
 				db.createCollection("attendee", arg1);
-		String path ="D:\\UnConference\\UnconferenceRegData.xlsx";
+		String path ="D:\\UnConference\\ucdata.xlsx";
 
 		File myFile = new File(path);
 		FileInputStream inputStream = new FileInputStream(myFile);
