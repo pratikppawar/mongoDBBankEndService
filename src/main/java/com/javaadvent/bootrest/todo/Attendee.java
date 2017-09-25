@@ -4,11 +4,11 @@ import org.springframework.data.annotation.Id;
 
 public final class Attendee {
 
-    @Id
-    private String id;
+    
+    private String rfid;
 
     private String name;
-
+    @Id
     private String email;
     
     private String orgName;
@@ -16,7 +16,7 @@ public final class Attendee {
     public Attendee() {}
 
     private Attendee(Builder builder) {
-    	this.id = builder.id;
+    	this.rfid = builder.rfid;
         this.name = builder.name;
         this.email = builder.email;
         this.orgName = builder.orgName;
@@ -28,8 +28,8 @@ public final class Attendee {
 
     //Other getters are omitted
 
-    public void update(String id, String name, String email, String orgName) {
-        this.id = id;
+    public void update(String rfid, String name, String email, String orgName) {
+        this.rfid = rfid;
         this.name = name;
         this.email = email;
         this.orgName = orgName;
@@ -42,7 +42,7 @@ public final class Attendee {
      */
     public static class Builder {
 
-    	private String id;
+    	private String rfid;
 
         private String name;
 
@@ -52,8 +52,8 @@ public final class Attendee {
 
         private Builder() {}
 
-        public Builder id(String id) {
-            this.id = id;
+        public Builder rfid(String rfid) {
+            this.rfid = rfid;
             return this;
         }
         
@@ -78,12 +78,12 @@ public final class Attendee {
         }
     }
 
-	public String getId() {
-		return id;
+	public String getrfid() {
+		return rfid;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setrfid(String rfid) {
+		this.rfid = rfid;
 	}
 
 	public String getName() {
