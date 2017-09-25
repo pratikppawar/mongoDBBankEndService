@@ -32,7 +32,7 @@ final class MongoDBTodoService implements AttendeeService {
         LOGGER.info("Creating a new todo entry with information: {}", todo);
 
         Attendee persisted = Attendee.getBuilder()
-        		.id(todo.getId())
+        		.rfid(todo.getRfid())
                 .name(todo.getName())
                 .email(todo.getEmail())
                 .orgName(todo.getOrgName())
@@ -88,8 +88,8 @@ final class MongoDBTodoService implements AttendeeService {
     public AttendeeDTO update(AttendeeDTO todo) {
         LOGGER.info("Updating todo entry with information: {}", todo);
 
-        Attendee updated = findTodoById(todo.getId());
-        updated.update(todo.getId(), todo.getName(), todo.getEmail(), todo.getOrgName());
+        Attendee updated = findByEmail(todo.getEmail());
+        updated.update(todo.getRfid(), todo.getName(), todo.getEmail(), todo.getOrgName());
         updated = repository.save(updated);
 
         LOGGER.info("Updated todo entry with information: {}", updated);
@@ -104,13 +104,23 @@ final class MongoDBTodoService implements AttendeeService {
     }
 
     private AttendeeDTO convertToDTO(Attendee model) {
-        AttendeeDTO dto = new AttendeeDTO();
+    	AttendeeDTO dto = new AttendeeDTO();
 
-        dto.setId(model.getId());
+        dto.setRfid(model.getrfid());
         dto.setEmail(model.getEmail());
         dto.setName(model.getName());
         dto.setOrgName(model.getOrgName());
 
         return dto;
     }
+
+	@Override
+	public Attendee findByEmail(String email) {
+		// TODO Auto-generated method stub
+		Attendee att=repository.findByEmail(email);
+		if(att!=null){
+			return att;
+		}
+		return null;
+	}
 }
