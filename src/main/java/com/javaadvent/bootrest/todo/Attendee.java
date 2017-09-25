@@ -3,12 +3,29 @@ package com.javaadvent.bootrest.todo;
 import org.springframework.data.annotation.Id;
 
 public final class Attendee {
-
+/*	@Id
+	private String id;
     
-    private String rfid;
+    public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}*/
+
+	public String getRfid() {
+		return rfid;
+	}
+
+	public void setRfid(String rfid) {
+		this.rfid = rfid;
+	}
+
+	private String rfid;
 
     private String name;
-    @Id
+   @Id
     private String email;
     
     private String orgName;
@@ -77,14 +94,6 @@ public final class Attendee {
             return build;
         }
     }
-
-	public String getrfid() {
-		return rfid;
-	}
-
-	public void setrfid(String rfid) {
-		this.rfid = rfid;
-	}
 
 	public String getName() {
 		return name;

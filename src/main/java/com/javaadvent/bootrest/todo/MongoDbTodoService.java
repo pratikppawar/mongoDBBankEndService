@@ -106,7 +106,7 @@ final class MongoDBTodoService implements AttendeeService {
     private AttendeeDTO convertToDTO(Attendee model) {
     	AttendeeDTO dto = new AttendeeDTO();
 
-        dto.setRfid(model.getrfid());
+        dto.setRfid(model.getRfid());
         dto.setEmail(model.getEmail());
         dto.setName(model.getName());
         dto.setOrgName(model.getOrgName());
